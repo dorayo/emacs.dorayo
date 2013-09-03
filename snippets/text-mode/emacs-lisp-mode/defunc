@@ -1,0 +1,9 @@
+#name : command template
+#contributor : ahei
+# --
+;;;###autoload
+(defun ${1:name} ()
+  "${2:doc.}"
+  (interactive$3)
+  $4)
+$0

@@ -1,0 +1,58 @@
+还没定义的键,或者不常用的键(u):
+C-^
+
+M-r
+M-s (u)
+M-o (u)
+M-]
+M-{
+M-}
+M-|
+M-?
+
+C-x q (u)
+C-x w 
+C-x e (u)
+C-x t
+C-x y
+C-x u
+C-x i (u)
+C-x p
+C-x [ (u)
+C-x ] (u)
+C-x \
+C-x |
+C-x s (u)
+C-x g
+C-x j
+C-x ; (u)
+C-x '
+C-x c
+C-x ,
+C-x . (u)
+C-x < (u)
+C-x > (u)
+
+C-x C-w (u)
+C-x C-y
+C-x C-u
+C-x C-p (u)
+C-x C-]
+C-x C-\
+C-x C-a
+C-x C-g
+C-x C-h
+C-x C-z (u)
+C-x C-n (u)
+C-x C-/
+
+C-M-q
+C-M-w (u)
+C-M-y
+C-M-i (u)
+C-M-o (u)
+C-M-j
+C-M-^
+C-M-v
+C-M-m
+C-M-_

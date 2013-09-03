@@ -1,0 +1,100 @@
+;;外观设置
+;;颜色设置，其实有个color-theme.el可以将Emacs设置丰富多彩，非常漂亮，不过启动有些慢，我只是选择了一些颜色设置。
+;;去掉启动欢迎界面
+(setq inhibit-startup-message t);;;;;去掉工具栏
+(tool-bar-mode nil)
+;;;;;去掉菜单栏，我将F10绑定为显示菜单栏，万一什么东西忘了，需要菜单栏了可以摁F10调出，再摁F10就去掉菜单
+(menu-bar-mode nil)
+;;;;;不要滚动栏，现在都用滚轴鼠标了，可以不用滚动栏了
+(scroll-bar-mode nil)
+;;;;;改变emacs标题栏的标题
+(setq frame-title-format "%b@Dorayo")
+;;;;;允许emacs和外部其他程序的粘贴
+(setq x-select-enable-clipboard t)
+;; 显示列号
+(setq column-number-mode t)
+;;开启语法高亮。
+(global-font-lock-mode 1)
+;;设置tab为4个空格的宽度
+(setq default-tab-width 4)
+(setq c-basic-offset 4)
+;;;;;;;;;  设置界面 start
+(set-cursor-color "Wheat")
+(set-mouse-color "Wheat")
+(set-foreground-color "Wheat")
+(set-background-color "DarkSlateGray")
+(if window-system
+	(setq default-frame-alist
+		  (append
+		   '( (top . 80)
+			  (left . 100)
+              (width . 110)
+              (height . 35))
+		   default-frame-alist))
+  )
+;;;启动最大化
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 97) (height . 49)))
+;;;Bind "C-x h" with Backspace-kill
+;;;###autoload
+(defun c-electric-backspace-kill ()
+  "If `mark-active', run `kill-region', otherwise run `c-electric-backspace'."
+  (interactive)
+  (if mark-active
+      (call-interactively 'kill-region)
+    (call-interactively 'c-electric-backspace)))
+(global-set-key (kbd "C-h") 'c-electric-backspace)
+;;;;;启用时间显示设置，在minibuffer上面的那个杠上（忘了叫什么来着）
+(display-time-mode 1)
+;;;;;时间使用24小时制
+(setq display-time-24hr-format t)
+;;;;;时间显示包括日期和具体时间
+(setq display-time-day-and-date t)
+;;;;;时间的变化频率，单位多少来着？
+(setq display-time-interval 10)
+;;;;;鼠标自动避开指针，如当你输入的时候，指针到了鼠标的位置，鼠标有点挡住视线了
+(mouse-avoidance-mode 'animate)
+;;;;;指针不要闪，我得眼睛花了
+(blink-cursor-mode -1)
+;;;高亮显示要拷贝的内容
+(transient-mark-mode 1)
+;;括号匹配时显示另外一边的括号，而不是烦人的跳到另一个括号。
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)(show-paren-mode 1)
+;;打开高亮 #M-x global-font-lock-mode
+(global-font-lock-mode t)
+;;;;;用滚轴鼠标
+(mouse-wheel-mode t)
+;;光标靠近鼠标的时候，让鼠标自动让开，别挡住视线
+(mouse-avoidance-mode 'animate)
+;;;;;备份设置
+;;;;;emacs还有一个自动保存功能，默认在~/.emacs.d/auto-save-list里，这个非常有用，我这里没有改动，具体可以参见Sams teach yourself emacs in 24hours(我简称为sams24)
+;;;;;启用版本控制，即可以备份多次
+(setq version-control t)
+;;;;;备份最原始的版本两次，记第一次编辑前的文档，和第二次编辑前的文档
+(setq kept-old-versions 2)
+;;;;;备份最新的版本五次，理解同上
+(setq kept-new-versions 5)
+;;;;;删掉不属于以上7中版本的版本
+(setq delete-old-versions t)
+;;;;;设置备份文件的路径
+(setq backup-directory-alist '(("." . "~/.emacs.tmp")))
+;;;;;备份设置方法，直接拷贝
+(setq backup-by-copying t)
+;; 自动存盘
+(setq auto-save-mode t)
+;;不要总是没完没了的问yes or no, 为什么不能用 y/n
+(fset 'yes-or-no-p 'y-or-n-p)
+;;不要生成临时文件
+(setq-default make-backup-files nil)
+;;;;;去掉烦人的警告铃声
+(setq visible-bell nil)
+;;;;;滚动页面时比较舒服，不要整页的滚动
+(setq scroll-step 1
+	  scroll-margin 3
+	  scroll-conservatively 10000)
+;;;;;使用C-k删掉指针到改行末的所有东西
+(setq-default kill-whole-line t)
+;;;;;设定删除保存记录为200，可以方便以后无限恢复
+(setq kill-ring-max 200)
+;;;;;是用aspell程序作为Emacs的拼写检查成学
+(setq-default ispell-program-name "aspell")

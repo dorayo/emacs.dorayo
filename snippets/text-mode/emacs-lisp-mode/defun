@@ -1,0 +1,8 @@
+#name : function template
+#contributor : ahei
+# --
+;;;###autoload
+(defun ${1:name} ()
+  "${2:doc.}"
+  $3)
+$0
