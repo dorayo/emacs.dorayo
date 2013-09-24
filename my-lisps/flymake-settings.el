@@ -2,7 +2,7 @@
 
 ;; Author: ahei <ahei0802@gmail.com>
 ;; URL: http://code.google.com/p/dea/source/browse/trunk/my-lisps/flymake-settings.el
-;; Time-stamp: <2010-11-26 13:41:40 Friday by taoshanwen>
+;; Time-stamp: <2013-09-24 06:23:15 Tuesday by oa>
 
 ;; This  file is free  software; you  can redistribute  it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -122,5 +122,5 @@ Use CREATE-TEMP-F for creating temp copy."
  `(("C-c N"   flymake-goto-next-error-disp)
    ("C-c P"   flymake-goto-prev-error-disp)
    ("C-c M-w" flymake-display-current-warning/error)))
-
+(global-set-key [(f9)] 'flymake-mode)
 (provide 'flymake-settings)
